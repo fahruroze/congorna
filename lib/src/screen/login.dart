@@ -1,27 +1,39 @@
+import 'package:congorna/utils/screenConfig.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 
+import 'package:google_fonts/google_fonts.dart';
+
 class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    ScreenConfig().init(context);
     if (Platform.isIOS){
       return CupertinoPageScaffold(
         child: pageBody(context),
       );
     }else{
       return Scaffold(
-        body: pageBody(context),
+        body: SafeArea(child: pageBody(context)),
       );
     }
   }
   Widget pageBody(BuildContext context){
-    return Center(child: (Platform.isIOS) ? CupertinoButton(child: Text('Signup'), onPressed: (){
-      Navigator.pushReplacementNamed(context, '/singup');
-    },)
-    :RaisedButton(child: Text('Signup'),onPressed: (){
-      Navigator.pushReplacementNamed(context, '/signup');
-    },)
+    return ListView(
+      padding: EdgeInsets.only(top: 150.0),
+      children: <Widget>[
+
+        Center(
+          child: Text(
+            "Aplikasi",
+            style: GoogleFonts.sunflower(
+              fontSize: ScreenConfig.blockHorizontal * 6,
+
+            ),
+          ),
+        )
+      ],
     );
   }
 }

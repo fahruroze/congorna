@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "1087012192079",
+    "firebase_url": "https://pasar-2cb89.firebaseio.com",
+    "project_id": "pasar-2cb89",
+    "storage_bucket": "pasar-2cb89.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1087012192079:android:ed89e2970fa3e52fab0f3a",
+        "android_client_info": {
+          "package_name": "com.alev.kumbahapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1087012192079-ah53d2eoubu7va8ve57skg3ck5374u47.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alev.kumbahapp",
+            "certificate_hash": "21ca0334af7851f8faf84f1bc1f981b4b8c472ab"
+          }
+        },
+        {
+          "client_id": "1087012192079-v0d05u5jlpegkon1nambkgl6l2k2lgnn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEQ5Mr6UPfY1BaujeB1AandeDlVISW7yw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1087012192079-v0d05u5jlpegkon1nambkgl6l2k2lgnn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1087012192079-vtokhangi7c3eks6flvqnse505md9kbl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.alev.kumbahapp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1087012192079:android:ecce4a08246866f5ab0f3a",
+        "android_client_info": {
+          "package_name": "com.fahrur.congorna"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1087012192079-d4ajg3r5ait4gge8sfkgmhdhug85sg54.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fahrur.congorna",
+            "certificate_hash": "21ca0334af7851f8faf84f1bc1f981b4b8c472ab"
+          }
+        },
+        {
+          "client_id": "1087012192079-v0d05u5jlpegkon1nambkgl6l2k2lgnn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEQ5Mr6UPfY1BaujeB1AandeDlVISW7yw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1087012192079-v0d05u5jlpegkon1nambkgl6l2k2lgnn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1087012192079-vtokhangi7c3eks6flvqnse505md9kbl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.alev.kumbahapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
