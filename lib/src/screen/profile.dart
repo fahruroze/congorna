@@ -1,0 +1,36 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:congorna/src/blocs/auth_bloc.dart';
+import 'package:congorna/src/components/profile/profile_body.dart';
+import 'package:provider/provider.dart';
+
+class Profile extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    if (Platform.isIOS) {
+      // return CupertinoPageScaffold(child: pageBody(context));
+      return CupertinoPageScaffold(child: ProfileBody());
+    } else {
+      return Scaffold(
+        // body: pageBody(context),
+        body: ProfileBody(),
+      );
+    }
+  }
+
+  // Widget pageBody(BuildContext context) {
+  //   var authBloc = Provider.of<AuthBloc>(context);
+  //   return Center(
+  //       child: (Platform.isIOS)
+  //           ? CupertinoButton(
+  //               child: Text('Logout'),
+  //               onPressed: () => authBloc.logout(),
+  //             )
+  //           : FlatButton(
+  //               child: Text('Logout'),
+  //               onPressed: () => authBloc.logout(),
+  //             ));
+  // }
+}
