@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:congorna/src/models/pejasa.dart';
 import 'package:rxdart/subjects.dart';
 import 'package:rxdart/rxdart.dart';
+
 // import 'package:rxdart/subjects.dart';
 
 class AuthService {

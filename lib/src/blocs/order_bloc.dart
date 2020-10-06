@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:typed_data';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:congorna/src/models/order.dart';
 import 'package:congorna/src/services/firestore_service.dart';
 import 'package:congorna/src/widgets/appstate.dart';
+import 'package:congorna/src/widgets/orders.dart';
 import 'package:congorna/src/widgets/orders2.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -118,7 +118,6 @@ class OrderBloc {
     _jasaServices.close();
     _jasaTimes.close();
     _jasaImage.close();
-
     _orderAt.close();
     _orderBy.close();
     _pickupBy.close();
@@ -140,7 +139,6 @@ class OrderBloc {
     //    .placemarkFromCoordinates(position.latitude, position.longitude);
     var location = await _locationTracker.getLocation();
     _initialPosition = LatLng(location.latitude, location.longitude);
-
     print(
         "the latitude is: ${location.latitude} and th longitude is: ${location.longitude} ");
     print("initial position is : ${_initialPosition.toString()}");
@@ -188,12 +186,17 @@ class OrderBloc {
       orderAt: waktu,
     );
 
-    return db
+    db
         .setOrder(order)
         .then((value) => _orderSaved.sink.add(true))
         .catchError((error) => print(error))
         .then((value) {});
-    // Navigator.push(context, MaterialPageRoute(builder: (context) => Orders()));
+
+    print('PUSH KE ORDERS');
+    // return Navigator.pushNamed(context, '/pickup');
+
+    return Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => Orders()));
   }
 
   final validateJasaHarga = StreamTransformer<String, double>.fromHandlers(

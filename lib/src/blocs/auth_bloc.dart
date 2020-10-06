@@ -8,9 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_login_facebook/flutter_login_facebook.dart';
-
 import 'package:congorna/src/models/mahasiswa.dart';
-
 import 'package:congorna/src/screen/landing.dart';
 import 'package:congorna/src/screen/login.dart';
 import 'package:congorna/src/screen/signup.dart';
@@ -331,7 +329,6 @@ class AuthBloc {
 
       case FacebookLoginStatus.Cancel:
         print("user login cancel");
-
         break;
       case FacebookLoginStatus.Error:
         print("user log,in error");

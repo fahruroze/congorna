@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:congorna/src/blocs/order_bloc.dart';
 import 'package:congorna/src/widgets/appstate.dart';
 import 'package:device_preview/device_preview.dart';
@@ -52,6 +51,7 @@ class _AppState extends State<App> {
     authBloc.dispose();
     jasaBloc.dispose();
     customerBloc.dispose();
+    orderBloc.dispose();
     super.dispose();
   }
 }

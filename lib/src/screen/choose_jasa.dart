@@ -23,7 +23,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
-
+ 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
@@ -49,19 +49,21 @@ class _ChooseJasaState extends State<ChooseJasa> {
     var jasaBloc = Provider.of<JasaBloc>(context, listen: false);
     var orderBloc = Provider.of<OrderBloc>(context, listen: false); //i
     // final appState = Provider.of<AppState>(context);
-    orderBloc.orderSaved.listen((saved) {
-      if (saved != null && saved == true && context != null) {
-        Fluttertoast.showToast(
-            msg: "Jasa Saved",
-            toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.CENTER,
-            timeInSecForIosWeb: 3,
-            backgroundColor: AppColors.purpleViolet,
-            textColor: Colors.white,
-            fontSize: 16.0);
-        Navigator.of(context).pop();
-      }
-    });
+    // orderBloc.orderSaved.listen(
+    //   (saved) {
+    //     if (saved != null && saved == true && context != null) {
+    //       Fluttertoast.showToast(
+    //           msg: "Jasa Saved",
+    //           toastLength: Toast.LENGTH_SHORT,
+    //           gravity: ToastGravity.CENTER,
+    //           timeInSecForIosWeb: 3,
+    //           backgroundColor: AppColors.purpleViolet,
+    //           textColor: Colors.white,
+    //           fontSize: 16.0);
+    //       Navigator.of(context).pop();
+    //     }
+    //   },
+    // );
 
     super.initState();
   }
@@ -102,12 +104,12 @@ class _ChooseJasaState extends State<ChooseJasa> {
           existingJasa = snapshot.data;
 
           loadValues(
-            orderBloc, jasaBloc, existingJasa, authBloc.mahasiswaId,
+            orderBloc, jasaBloc, existingJasa, existingJasa.jasaId,
             // jasaBloc.jasaId,
           );
         } else {
           //ADD logic
-          loadValues(orderBloc, jasaBloc, null, authBloc.mahasiswaId
+          loadValues(orderBloc, jasaBloc, null, existingJasa.jasaId
               // jasaBloc.jasaId,
               );
         }
@@ -132,8 +134,15 @@ class _ChooseJasaState extends State<ChooseJasa> {
                             //     : ButtonType.Disable,
                             buttonText: 'Order',
                             onPressed: () => [
-                                  orderBloc.saveOrder(context: context),
-                                  orderBloc.getPelangganLocation()
+                                  orderBloc.saveOrder(context: context)
+                                  // Navigator.of(context).pushNamed('/pickup'),
+                                  // Navigator.pushNamed(context, '/pickup')
+
+                                  // orderBloc.getPelangganLocation(),
+                                  // Navigator.pushReplacement(context,
+                                  //     MaterialPageRoute(builder: (context) {
+                                  //   return Orders();
+                                  // }))
                                 ]),
                       );
                     }),
@@ -184,10 +193,13 @@ class _ChooseJasaState extends State<ChooseJasa> {
               children: <Widget>[
                 Flexible(
                   child: ClipRRect(
-                      borderRadius: BorderRadius.circular(4),
-                      child: Image.asset(
-                        'assets/images/map.png',
-                      )),
+                    borderRadius: BorderRadius.circular(4),
+                    // child: Image.asset(
+                    //   'assets/images/map.png',
+                    //   height: 100,
+                    //   width: 110,
+                    // ),
+                  ),
                   flex: 2,
                 ),
                 SizedBox(
@@ -260,12 +272,12 @@ class _ChooseJasaState extends State<ChooseJasa> {
                                     height: 100,
                                     width: 110,
                                     fit: BoxFit.cover,
-                                    errorWidget: (context, url, error) =>
-                                        Image.asset(
-                                      "assets/images/add.png",
-                                      height: 100,
-                                      width: 110,
-                                    ),
+                                    // errorWidget: (context, url, error) =>
+                                    //     Image.asset(
+                                    //   "assets/images/add.png",
+                                    //   height: 100,
+                                    //   width: 110,
+                                    // ),
                                     placeholder: (context, url) =>
                                         CircularProgressIndicator(),
                                   ),

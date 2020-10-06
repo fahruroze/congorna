@@ -58,14 +58,14 @@ class AppState with ChangeNotifier {
     //    .placemarkFromCoordinates(position.latitude, position.longitude);
     var location = await _locationTracker.getLocation();
     _initialPosition = LatLng(location.latitude, location.longitude);
-    try {
-      Uint8List imageData = await getMarker('assets/car_icon.png', 65);
-      _addMarkerCar(location, imageData);
-    } on PlatformException catch (e) {
-      if (e.code == 'PERMISSION_DENIED') {
-        debugPrint("Unauthorization");
-      }
-    }
+    // try {
+    //   Uint8List imageData = await getMarker('assets/car_icon.png', 65);
+    //   _addMarkerCar(location, imageData);
+    // } on PlatformException catch (e) {
+    //   if (e.code == 'PERMISSION_DENIED') {
+    //     debugPrint("Unauthorization");
+    //   }
+    // }
 
     print(
         "the latitude is: ${location.latitude} and th longitude is: ${location.longitude} ");
