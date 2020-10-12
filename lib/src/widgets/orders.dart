@@ -292,7 +292,7 @@ class _PetaState extends State<Peta> {
                         Flexible(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Text("Harga Jasa",style: GoogleFonts.poppins(fontWeight: FontWeight.bold),),
                               Text(modelOrders.data[i].jasaHarga.toString(),style: GoogleFonts.poppins(),),
@@ -319,7 +319,7 @@ class _PetaState extends State<Peta> {
                         Flexible(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Text("Status",style: GoogleFonts.poppins(fontWeight: FontWeight.bold),),
                               Text(modelOrders.data[i].status.toString(),style: GoogleFonts.poppins(),),
