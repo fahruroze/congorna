@@ -6,10 +6,12 @@ import 'package:congorna/src/services/firestore_service.dart';
 import 'package:congorna/src/widgets/appstate.dart';
 import 'package:congorna/src/widgets/orders.dart';
 import 'package:congorna/src/widgets/orders2.dart';
+import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:ndialog/ndialog.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/subjects.dart';
 import 'package:uuid/uuid.dart';
@@ -186,12 +188,35 @@ class OrderBloc {
       orderAt: waktu,
     );
 
-    db
-        .setOrder(order)
-        .then((value) => _orderSaved.sink.add(true))
-        .catchError((error) => print(error))
-        .then((value) {});
+//    db
+//        .setOrder(order)
+//        .then((value) => _orderSaved.sink.add(true))
+//        .catchError((error) => print(error))
+//        .then((value) {});
+    ProgressDialog pg=new ProgressDialog(context,title: Text("Loading"));
+    pg.show();
+    Dio dio=new Dio();
 
+
+    Response response=await dio.post("http://101.50.0.106:9090/store_order",data: {
+      "vendorId" : "null",
+      "jasaId" : "${_jasaId.value}",
+      "latlongPelanggan" : "${getLatLong.toString()}",
+      "jasaName" : "${_jasaName.value.trim()}",
+      "jasaHarga"  : "${_jasaHarga.value}",
+      "jasaTimes" : "${DateTime.now()}",
+      "pickUpBy" : "${_pickupBy.value}",
+      "orderBy" : "${profile.displayName}",
+      "orderAt" : "$waktu",
+      "status"  : "Pending",
+      "latlongPejasa" : "323323,2323",
+      "latlongPejasa" : "323323,2323",
+      "jasaImages" : "${_jasaImage.value}"
+     });
+    print(response.data);
+    if(response.statusCode==200){
+      pg.dismiss();
+    }
     print('PUSH KE ORDERS');
     // return Navigator.pushNamed(context, '/pickup');
 
